@@ -9,9 +9,18 @@ const getCategories = () => {
       const categories = await category.findAll({
         order: [["createdAt", "DESC"]],
       });
+
+      if (categories.length === 0) {
+        return resolve({
+          err: 1,
+          mes: "Không có danh mục nào tồn tại",
+          data: [],
+        });
+      }
+
       resolve({
-        err: categories ? 0 : 1,
-        mes: categories ? "Lấy danh mục thành công" : "Lấy danh mục thất bại",
+        err: 0,
+        mes: "Lấy danh mục thành công",
         data: categories,
       });
     } catch (error) {
