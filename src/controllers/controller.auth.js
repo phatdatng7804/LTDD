@@ -3,8 +3,7 @@ const { registerSchema, loginSchema } = require("../helper/joi_auth");
 const {
   badRequest,
   internalServerError,
-  notFound,
-} = require("../middlewares/handdle_error");
+} = require("../middlewares/handle_error");
 const register = async (req, res) => {
   try {
     const { error } = registerSchema.validate(req.body);
@@ -34,7 +33,6 @@ const login = async (req, res) => {
       user: response.user,
     });
   } catch (error) {
-    console.log(error);
     return internalServerError(error, res);
   }
 };
