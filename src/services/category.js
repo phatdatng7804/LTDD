@@ -89,7 +89,7 @@ const updateCategory = (id, data) => {
 
       // Cập nhật danh mục
       await foundCategory.update({ name });
-      await foundCategory.reload(); // Reload để lấy dữ liệu mới nhất
+      await foundCategory.reload();
 
       resolve({
         err: 0,
