@@ -23,6 +23,13 @@ module.exports = {
           key: "id",
         },
       },
+      fund_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "CharityFunds",
+          key: "id",
+        },
+      },
       amount: {
         type: Sequelize.DOUBLE,
       },

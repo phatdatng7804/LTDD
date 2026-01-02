@@ -13,12 +13,17 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "project_id",
         as: "project",
       });
+      Donations.belongsTo(models.CharityFunds, {
+        foreignKey: "fund_id",
+        as: "fund",
+      });
     }
   }
   Donations.init(
     {
       user_id: DataTypes.INTEGER,
       project_id: DataTypes.INTEGER,
+      fund_id: DataTypes.INTEGER,
       amount: DataTypes.DOUBLE,
       payment_method: DataTypes.STRING,
       transaction_id: DataTypes.STRING,

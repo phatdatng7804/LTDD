@@ -1,31 +1,31 @@
-const category = require("../controllers/controller.category");
-const { verifyToken } = require("../middlewares/handle_auth");
+const charity = require("../controllers/controller.charity");
 const router = require("express").Router();
+const { verifyToken } = require("../middlewares/handle_auth");
 const { authorization } = require("../middlewares/handle_admin");
 
 router.get(
   "/get",
   verifyToken,
   authorization([1], [2]),
-  category.getCategories
+  charity.getCharityFunds
 );
 router.post(
   "/created",
   verifyToken,
   authorization([1]),
-  category.createCategories
+  charity.createCharityFund
 );
 router.put(
-  "/update/:id",
+  "/update/:name",
   verifyToken,
   authorization([1]),
-  category.updateCategories
+  charity.updateCharityFund
 );
 router.delete(
-  "/delete/:id",
+  "/delete/:name",
   verifyToken,
   authorization([1]),
-  category.deleteCategories
+  charity.deleteCharityFund
 );
 
 module.exports = router;
