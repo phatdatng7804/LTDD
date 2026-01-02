@@ -55,15 +55,15 @@
  *           schema:
  *             type: object
  *             required:
- *               - email
+ *               - username
  *               - password
  *             properties:
- *               email:
+ *               username:
  *                 type: string
- *                 example: test@gmail.com
+ *                 example: vophilong
  *               password:
  *                 type: string
- *                 example: 123456
+ *                 example: 123456789
  *     responses:
  *       200:
  *         description: Đăng nhập thành công
